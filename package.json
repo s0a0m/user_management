@@ -1,0 +1,29 @@
+{
+  "name": "desarrollo-util-crud",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --watch --env-file=.env index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "oxlint": "^0.4.4",
+    "prettier": "3.3.2"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "mongoose": "^8.4.3"
+  },
+  "imports": {
+    "#Config/*": "./src/config/*",
+    "#Controllers/*": "./src/controllers/*",
+    "#Dto/*": "./src/dto/*",
+    "#Schemas/*": "./src/schemas/*",
+    "#Routes/*": "./src/routes/*"
+  }
+}
