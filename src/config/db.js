@@ -9,4 +9,10 @@ const connectDB = (url) =>
       process.exit(1)
     })
 
-export default connectDB
+const disconnectDB = () => {
+  mongoose.disconnect(() => {
+    console.log('Database disconnected.')
+  })
+}
+
+export { connectDB, disconnectDB }
