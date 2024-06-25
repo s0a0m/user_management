@@ -16,6 +16,10 @@
     "prettier": "3.3.2"
   },
   "dependencies": {
+    "@sinclair/typebox": "^0.32.34",
+    "ajv": "^8.16.0",
+    "ajv-errors": "^3.0.0",
+    "ajv-formats": "^3.0.1",
     "express": "^4.19.2",
     "mongoose": "^8.4.3"
   },
