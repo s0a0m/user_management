@@ -4,17 +4,12 @@ import addErrors from 'ajv-errors'
 import addFormats from 'ajv-formats'
 import {
   _idDtoSchema,
-  nameDtoSchema,
-  surnameDtoSchema,
   emailDtoSchema,
   passwordDtoSchema,
 } from '#Lib/dto-types.js'
 
-const registerDTOSchema = new Type.Object(
+const loginDTOSchema = new Type.Object(
   {
-    _id: _idDtoSchema,
-    name: nameDtoSchema,
-    surname: surnameDtoSchema,
     email: emailDtoSchema,
     password: passwordDtoSchema,
   },
@@ -27,15 +22,15 @@ const registerDTOSchema = new Type.Object(
 )
 
 const ajv = new Ajv({ allErrors: true })
-addFormats(ajv, ['email', 'uuid']).addKeyword('kind').addKeyword('modifier')
+addFormats(ajv, ['email']).addKeyword('kind').addKeyword('modifier')
 
 ajv.addFormat('password', /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*$/)
 
 addErrors(ajv)
 
-const validateSchema = ajv.compile(registerDTOSchema)
+const validateSchema = ajv.compile(loginDTOSchema)
 
-const userRegisterDTO = (req, res, next) => {
+const userLoginDTO = (req, res, next) => {
   const isDTOValid = validateSchema(req.body)
   if (!isDTOValid)
     return res
@@ -44,4 +39,4 @@ const userRegisterDTO = (req, res, next) => {
   next()
 }
 
-export default userRegisterDTO
+export default userLoginDTO

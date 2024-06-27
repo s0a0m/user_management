@@ -20,7 +20,9 @@
     "ajv": "^8.16.0",
     "ajv-errors": "^3.0.0",
     "ajv-formats": "^3.0.1",
+    "bcrypt": "^5.1.1",
     "express": "^4.19.2",
+    "jose": "^5.5.0",
     "mongoose": "^8.4.3"
   },
   "imports": {
@@ -28,6 +30,7 @@
     "#Controllers/*": "./src/controllers/*",
     "#Dto/*": "./src/dto/*",
     "#Schemas/*": "./src/schemas/*",
-    "#Routes/*": "./src/routes/*"
+    "#Routes/*": "./src/routes/*",
+    "#Lib/*": "./src/lib/*"
   }
 }

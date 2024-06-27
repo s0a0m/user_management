@@ -12,7 +12,7 @@ const boostrap = () => {
 
   process.on('SIGINT', async () => {
     console.log('Shutting down server and disconnecting databas...')
-    server.close(() => {
+    httpServer.close(() => {
       disconnectDB()
       process.exit(0)
     })
