@@ -6,13 +6,15 @@ const userUnregisterController = async (req, res) => {
   const { id } = req
 
   const userById = await userModel.findById(id).exec()
-  if (!userById) return res.status(401).send('Usuario no autorizado')
+  if (!userById)
+    return res.status(401).send({ errors: ['Usuario no autorizado'] })
 
   const checkPassword = await compare(password, userById.password)
-  if (!checkPassword) return res.status(401).send('Credenciales incorrectas')
+  if (!checkPassword)
+    return res.status(401).send({ errors: ['Credenciales incorrectas'] })
 
   await userById.deleteOne({ _id: id })
-  return res.send('usuario eliminado')
+  return res.send({ errors: ['usuario eliminado'] })
 }
 
 export default userUnregisterController

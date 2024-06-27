@@ -31,6 +31,7 @@
     "#Dto/*": "./src/dto/*",
     "#Schemas/*": "./src/schemas/*",
     "#Routes/*": "./src/routes/*",
-    "#Lib/*": "./src/lib/*"
+    "#Lib/*": "./src/lib/*",
+    "#Constants/*": "./src/Constants/*"
   }
 }

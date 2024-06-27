@@ -6,10 +6,12 @@ const userLoginController = async (req, res) => {
   const { email, password } = req.body
 
   const userByEmail = await userModel.findOne({ email }).exec()
-  if (!userByEmail) return res.status(401).send('Credenciales incorrectas')
+  if (!userByEmail)
+    return res.status(401).send({ errors: ['Credenciales incorrectas'] })
 
   const checkPassword = await compare(password, userByEmail.password)
-  if (!checkPassword) return res.status(401).send('Credenciales incorrectas')
+  if (!checkPassword)
+    return res.status(401).send({ errors: ['Credenciales incorrectas'] })
 
   const jwtConstructor = new SignJWT({ id: userByEmail._id })
   const encoder = new TextEncoder()
